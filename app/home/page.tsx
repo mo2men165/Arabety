@@ -1,7 +1,7 @@
 import Image from "next/image";
-import styles from "../public/styles/style";
+import styles from "../../public/styles/style";
 import GetStarted from "@/components/GetStarted";
-import { robot } from "../public/assets"
+import { robot } from "../../public/assets"
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
