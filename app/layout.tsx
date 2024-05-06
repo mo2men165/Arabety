@@ -25,7 +25,10 @@ export default function RootLayout({
    <>
     <ClerkProvider>
       <html lang="en">
-        <body className={poppins.variable}>{children}</body>
+        <body className={poppins.variable}>
+          <Toaster />
+          {children}
+          </body>
       </html>
     </ClerkProvider>
    </>

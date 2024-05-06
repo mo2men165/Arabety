@@ -24,15 +24,28 @@ const page = () => {
       const handleSubmit = (e: any) => {
         e.preventDefault();
         setLoading(true);
-        emailjs.send('service_lajllhr', 'template_e5rw3mj', {
+        emailjs.send('service_lajllhr', 'template_xkm5sdr', {
           from_name: form.name,
           to_name: `Moamen`,
           from_email: form.email,
-          to_email: 'moamenabdeltawab@gmail.com',
+          to_email: 'muhamed12126hagras@gmail.com',
+          email: form.email,
+          phone: form.phone,
+          car: form.car,
+          location: form.location,
           message: form.message
         },'JNKdBh4-SqH_asdv7'
         ).then(()=>{
           setLoading(false);
+          toast.success('One of our represenattives will be in touch shortly!',
+      {
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      }
+          );
           setForm({
             name: '',
             email: '',
@@ -41,9 +54,18 @@ const page = () => {
             location: '',
             message: ''
           })
-          toast.success('We have received your information')
+          
         }, (error) => {
           setLoading(false)
+          toast.error('Sorry, something went wrong.',
+      {
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      }
+          );
         })
       }
       const formRef = useRef<HTMLFormElement>(null);
