@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import styles from '@/public/styles/style';
 import toast from 'react-hot-toast';
+import Button from '@/components/Button';
 
 const page = () => {
     const [form, setForm] = useState({
@@ -24,6 +25,7 @@ const page = () => {
       const handleSubmit = (e: any) => {
         e.preventDefault();
         setLoading(true);
+        setOrder(true);
         emailjs.send('service_lajllhr', 'template_xkm5sdr', {
           from_name: form.name,
           to_name: `Moamen`,
@@ -69,6 +71,8 @@ const page = () => {
         })
       }
       const formRef = useRef<HTMLFormElement>(null);
+
+      const [order, setOrder] = useState(false)
     
       return <>
       <Navbar />
@@ -206,8 +210,22 @@ const page = () => {
         </div>
 
       </div>
+      
+      {!order ? <p>hello</p> : <section className={`${styles.flexCenter} ${styles.marginY} ${styles.padding} my-10 sm:flex-row flex-col bg-black-gradient-2 rounded-[20px] box-shadow`}>
+    <div className="flex-1 flex flex-col">
+      <h2 className={styles.heading2}>Your driver is on the way</h2>
+      <p className={`${styles.paragraph}  mt-5`}>
+        Ahmed is on his way, call your driver on +201100514222
+      </p>
+    </div>
+
+    
+  </section>}
       </div>
       </div>
+
+      
+
       <Footer />
       </>
 }
